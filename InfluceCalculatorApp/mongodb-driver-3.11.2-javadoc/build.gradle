@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('mongodb-driver-3.11.2-javadoc.jar'))

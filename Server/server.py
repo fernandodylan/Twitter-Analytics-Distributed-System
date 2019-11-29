@@ -1,28 +1,92 @@
 import socket
+import sys
+import threading
+import pymongo
+import time
+import string
+from servermethods import *
 
-#Socket Object
+#host = "192.168.0.19"
+host = "192.168.0.16" 
+port = 9000
+message = " "
+
+
+
+
+####CLIENT THREAD FUNCTION####
+def clientthread(conn, ip):
+    print("Connected to: ", ip)
+    while True:
+        #Receive the data from the client
+        data = conn.recv(1024)
+        #Convert bytes to string
+        message = data.decode("utf-8")
+
+        #Parse the password and username from a single string
+        newdata = message.split() #split string into a list
+
+        #Get the username and password
+        command = newdata[0]
+        username = newdata[1]
+        password = newdata[2]
+
+        #Determine which command is sent from the Client and execute that command
+        if command == "register":
+            register(username, password)
+        
+        if command == "login":
+            sendback = login(username, password)
+            if sendback == False:
+                break
+                
+            sendback_byte = sendback.encode()
+            conn.sendall(sendback_byte)
+        
+
+        if command == "data":
+            datavalues()
+
+        
+        
+        #Close the connection
+        conn.close()
+        break 
+
+
+
+
+
+
+
+#Create a Socket
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print("Socket Created")
 
-#Bind socket to ip and port
+try:
+    serversocket.bind((host,port))
+except socket.error:
+    print("Failed to Bind to Socket")
+    sys.exit()
 
-serversocket.bind(("localhost", 9000))
-#192.197.54.35 school
-print("Binding Successful ")
+print("Socket has been successfully binded...")
 
-
-
+#Listen to incoming connection
 serversocket.listen(10)
 
-#Listen for connections forever
+
+
+#Accept Clients
 while True:
-    #Accept Connections
-    clientsocket, address = serversocket.accept()
-    print("Connected to ", address)
+    conn, addr = serversocket.accept()
 
-    #Listen for Messages and Print them to the Console
-    data = clientsocket.recv(1024) 
-    print("Received: ", repr(data))
+    #Start a new thread for each client
+    threading._start_new_thread(clientthread, (conn,addr))
 
-    
-    
+
+
+
+
+
+
 
