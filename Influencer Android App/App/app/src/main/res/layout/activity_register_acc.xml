@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registerAcc"
+    android:background="@android:color/black"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="50dp"
+
+        android:text="Register"
+
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/enteredEm"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColorHint="@android:color/white" />
+
+    <EditText
+        android:id="@+id/enteredUserName"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="User Name"
+        android:padding="16dp"
+        android:textColorHint="@android:color/white" />
+
+    <EditText
+        android:id="@+id/enteredTwitterName"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Twitter Account"
+        android:padding="16dp"
+        android:textColorHint="@android:color/white" />
+
+    <EditText
+        android:id="@+id/enteredPass1"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Password"
+        android:padding="16dp"
+        android:textColorHint="@android:color/white" />
+    <EditText
+        android:id="@+id/enteredPass2"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Retype Password"
+        android:padding="16dp"
+        android:textColorHint="@android:color/white" />
+
+    <Button
+        android:id="@+id/regiAcc"
+        android:layout_width="316dp"
+        android:layout_height="53dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="20dp"
+
+        android:background="@drawable/rounded_button"
+        android:onClick="registerignAccount"
+        android:text="Register"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enteredEm" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="316dp"
+        android:layout_height="53dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="5dp"
+
+        android:background="@drawable/rounded_button"
+        android:onClick="goBack"
+        android:text="Go Back"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enteredEm" />
+
+</LinearLayout>
